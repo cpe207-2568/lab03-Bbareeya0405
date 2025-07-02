@@ -1,0 +1,276 @@
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Courier New', monospace;
+      background-color: #0f0f0f;
+      color: #00ffcc;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    section {
+      max-width: 700px;
+      width: 100%;
+      background-color: #1a1a1a;
+      border: 1px solid #00ffcc;
+      border-radius: 15px;
+      box-shadow: 0 12px 24px #00ffcc55;
+      padding: 30px 35px;
+      text-align: center;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    h1.center-head {
+      font-size: 2.8rem;
+      margin-bottom: 25px;
+      color: #00ffff;
+      letter-spacing: 4px;
+      text-shadow: 0 0 10px #00ffccaa;
+    }
+
+    img.center-img {
+      width: 250px;
+      border-radius: 20px;
+      border: 3px solid #00ffccaa;
+      box-shadow: 0 0 20px #00ffccbb;
+      margin-bottom: 25px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    img.center-img:hover {
+      transform: scale(1.05) rotate(3deg);
+      box-shadow: 0 0 30px #00ffaa;
+    }
+
+    h2.head {
+      font-size: 1.9rem;
+      margin-bottom: 20px;
+      color: #00ffff;
+      border-bottom: 2px solid #00ffcc;
+      padding-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .expr-box {
+      background-color: #262626;
+      padding: 20px 25px;
+      margin-bottom: 25px;
+      border-radius: 12px;
+      box-shadow: inset 0 0 15px #00ffcc66;
+      text-align: left;
+    }
+
+    .highlight {
+        color: #88ff00ea;
+    }
+
+    .expr-box h2 {
+      margin-top: 0;
+      color: #00ffcc;
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    p, ul {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+      color: #c1f4da;
+    }
+
+    ul.skills {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul.skills li {
+      margin-bottom: 10px;
+      padding-left: 1.4em;
+      position: relative;
+    }
+    ul.skills li::before {
+      content: "📌";
+      position: absolute;
+      left: 0;
+    }
+
+    /* 🔷 Footer Style */
+    .custom-footer {
+        margin-top: 40px;
+        color: #71f4c3;
+        font-size: 1rem;
+        max-width: 700px;
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid #00ffcc;
+        padding-top: 12px;
+        font-weight: bold;
+        background-color: #121212;
+        border-radius: 25px;
+        box-shadow: 0 0 10px #00ffcc55 inset;
+        padding: 20px;
+        animation: fadeIn 1.5s ease;
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      img.center-img {
+        width: 180px;
+      }
+      h1.center-head {
+        font-size: 2rem;
+        letter-spacing: 2px;
+      }
+      h2.head {
+        font-size: 1.5rem;
+      }
+      section {
+        padding: 20px 20px;
+      }
+    }
+    /* 🔷 Navbar Custom Style */
+    .custom-navbar {
+        box-shadow: 0 0 15px #00ffcc88;
+        border-radius: 25px;
+        border: 2px solid #00ffcc;
+        padding: 10px 20px;
+    }
+
+    /* สีตัวอักษรของแบรนด์และลิงก์ใน navbar */
+    .custom-navbar .navbar-brand,
+    .custom-navbar .nav-link {
+        color: #00ffff !important;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    /* Hover effect */
+    .custom-navbar .nav-link:hover {
+        color: #00ffaa !important;
+    }
+    .navbar-toggler {
+        border-color: #00ffcc;
+    }
+
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba%280, 255, 204, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    /* 🔸 เพิ่มขนาดฟอนต์และ padding ด้านใน navbar ให้ใหญ่ขึ้น */
+    .custom-navbar {
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }   
+
+    .custom-navbar .navbar-brand {
+        font-size: 1.7rem; /* ชื่อเว็บใหญ่ขึ้น */
+        padding: 8px 16px;
+    }
+
+    .custom-navbar .nav-link {
+        font-size: 1.2rem;  /* เมนูใหญ่ขึ้น */
+        margin: 0 10px;     /* ระยะห่างระหว่างเมนู */
+        padding: 8px 12px;  /* ขยายพื้นที่กด */
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color: #00ffcc;
+      border-radius: 50%;
+      padding: 15px;
+      box-shadow: 0 0 15px #00ffaa;
+    }
+
+    .btn-close-white {
+      filter: invert(100%);
+      background-color: #00ffcc;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #00ffaa;
+    }
+
+    .modal-content img {
+      max-height: 80vh;
+      object-fit: contain;
+    }
+/* ✅ Masonry Layout */
+.masonry-grid {
+  column-count: 3;
+  column-gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .masonry-grid {
+    column-count: 2;
+  }
+}
+@media (max-width: 500px) {
+  .masonry-grid {
+    column-count: 1;
+  }
+}
+
+.masonry-item {
+  background-color: #1a1a1a;
+  margin-bottom: 1.5rem;
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 15px;
+  box-shadow: 0 0 10px #00ffcc88;
+  display: inline-block;
+  width: 100%;
+}
+
+.masonry-item img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 10px #00ffaa55;
+}
+
+.masonry-item h5 {
+  font-size: 1.3rem;
+  color: #00ffff;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.masonry-item p {
+  color: #c1f4da;
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.quote-card {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  user-select: none;
+  position: fixed;
+  top: 10px;       /* อยู่ขอบบน ห่างจากบน 10px */
+  left: 50%;       /* กลางหน้าจอแนวนอน */
+  transform: translateX(-50%);  /* เลื่อนกลับซ้ายครึ่งนึง เพื่อให้กึ่งกลาง */
+  max-width: 400px;
+  z-index: 1050;
+  border-radius: 15px;
+  background: #111;
+  color: #00ffcc;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 0 15px #00ffccaa;
+}
