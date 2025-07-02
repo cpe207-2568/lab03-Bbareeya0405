@@ -1,0 +1,158 @@
+<!-- //contact.html-->
+<!-- //contact.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MY PORTFOLIO - Bareeya</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="icon" href="data:,">
+</head>
+<body>
+  <div class="container mt-4">
+    <!-- ✅ Navbar -->
+    <nav class="navbar navbar-expand-lg bg-dark mb-4 custom-navbar">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="index.html" style="color: #00ffcc;">Bareeya Sanii</a>
+        <button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html" style="color: #00ffcc;"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="experience.html" style="color: #00ffcc;"><i class="fa-solid fa-briefcase"></i> Experience</a></li>
+            <li class="nav-item"><a class="nav-link" href="gallery.html" style="color: #00ffcc;"><i class="fa-solid fa-images"></i> Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html" style="color: #00ffcc;"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- ✅ Main Content -->
+  <section class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <h1 class="center-head"><i class="fa-solid fa-star"></i> MY PROFILE <i class="fa-solid fa-star"></i></h1>
+            <img src="images/0713 (4).JPG" width="55%" alt="Profile Picture" class="center-img" />
+
+            <h2 class="head"><i class="fa-solid fa-envelope"></i> CONTACT</h2>
+      
+            <p class="contact-box"><strong>Tell : </strong>098-398-3504</p>
+            <p class="contact-box"><strong>Facebook : </strong>
+              <a href="https://www.facebook.com/bareeya.sanii" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">
+                <i class="fab fa-facebook-f"></i> Bareeya sanii
+              </a>
+            </p>
+            <p class="contact-box"><strong>Instagram : </strong>
+              <a href="https://www.instagram.com/bbareeya.0405" target="_blank" rel="noopener noreferrer" class="btn btn-outline-danger btn-sm">
+                <i class="fab fa-instagram"></i> bbareeya.0405
+              </a>
+            </p>
+            <p class="contact-box">
+                <strong>CMU Email: </strong>
+                <a href="mailto:bariya_sani@cmu.ac.th" class="btn btn-outline-info btn-lg mb-3">
+                    <i class="fa-solid fa-envelope"></i> bariya_sani@cmu.ac.th
+                </a>
+            </p>
+            <br><p class="text">| Feel free to reach out to me! |</p><br>
+        </div>
+    </div>
+  </section>
+
+  <!-- ✅ Footer -->
+  <footer class="custom-footer">
+     Bareeya Sanii | Nice to meet you.
+  </footer>
+
+  <!-- ✅ Bootstrap Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- ✅ Badge Modal -->
+  <div class="modal fade" id="fanBadgeModal" tabindex="-1" aria-labelledby="fanBadgeLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center" style="background: #111; color: #00ffcc; border: 2px solid #00ffcc; border-radius: 15px;">
+        <div class="modal-header border-0">
+          <h1 class="modal-title fs-4 w-100" id="fanBadgeLabel">🏅 Achievement Unlocked!</h1>
+        </div>
+        <div class="modal-body">
+          <div style="font-size: 3rem;">⭐</div>
+          <p class="fs-5 mt-3">You're a <strong>true fan!</strong> 🤍</p>
+          <p class="small text-light-emphasis">Thanks for exploring every corner of my world 🌏</p>
+        </div>
+        <div class="modal-footer justify-content-center border-0">
+          <button type="button" class="btn btn-outline-info" data-bs-dismiss="modal">Awesome!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Quote Box -->
+  <div class="quote-card card text-center mx-auto p-4 shadow-lg">
+    <button id="closeQuoteBtn" type="button" class="btn-close btn-close-white" aria-label="Close" style="position: absolute; top: 8px; right: 12px;"></button>
+    <p id="quoteText" class="fs-5 mb-0"></p>
+  </div>
+
+  <!-- ✅ Scripts -->
+  <script>
+    const pagesVisited = JSON.parse(localStorage.getItem("pagesVisited")) || {};
+    const currentPage = location.pathname.split("/").pop();
+    pagesVisited[currentPage] = true;
+    localStorage.setItem("pagesVisited", JSON.stringify(pagesVisited));
+
+    const allPages = ["index.html", "experience.html", "gallery.html", "contact.html"];
+    const hasAllPages = allPages.every(page => pagesVisited[page]);
+    const badgeShown = localStorage.getItem("fanBadgeShown");
+
+    if (hasAllPages && !badgeShown) {
+      setTimeout(() => {
+        const modal = new bootstrap.Modal(document.getElementById('fanBadgeModal'));
+        modal.show();
+        localStorage.setItem("fanBadgeShown", "true");
+      }, 1000);
+    }
+  </script>
+
+  <script>
+    const quotes = [
+      "Keep going. You're closer than you think.",
+      "🌱 Grow through what you go through.",
+      "Don't sparkle for them. Shine anyway. ✨",
+      "This is not a dream — it’s a decision.",
+      "พักได้ แต่อย่าหยุด. 🚶‍♀️"
+    ];
+
+    function getRandomQuote() {
+      return quotes[Math.floor(Math.random() * quotes.length)];
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const quoteCard = document.querySelector(".quote-card");
+      const quoteElement = document.getElementById("quoteText");
+      const closeBtn = document.getElementById("closeQuoteBtn");
+
+      if (quoteElement) {
+        quoteElement.textContent = getRandomQuote();
+      }
+
+      function hideQuote() {
+        if (quoteCard) quoteCard.style.display = "none";
+      }
+
+      const autoHideTimeout = setTimeout(hideQuote, 5000);
+
+      if (closeBtn) {
+        closeBtn.addEventListener("click", () => {
+          hideQuote();
+          clearTimeout(autoHideTimeout);
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
