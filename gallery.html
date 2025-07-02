@@ -1,0 +1,180 @@
+<!-- //gallery.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MY PORTFOLIO - Bareeya</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles/style.css">
+
+</head>
+<body>
+  <div class="container mt-4">
+    <!-- ✅ Bootstrap Navbar -->
+    <nav class="navbar navbar-expand-lg bg-dark mb-4 custom-navbar">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="index.html" style="color: #00ffcc;">Bareeya Sanii</a>
+        <button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html" style="color: #00ffcc;"><i class="fa-solid fa-house"></i> Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="experience.html" style="color: #00ffcc;"><i class="fa-solid fa-briefcase"></i> Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gallery.html" style="color: #00ffcc;"><i class="fa-solid fa-images"></i> Gallery</a>
+            </li>            
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html" style="color: #00ffcc;"><i class="fa-solid fa-envelope"></i> Contact</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Gallery Section -->
+  <section class="container mt-4">
+    <h1 class="center-head"><i class="fa-solid fa-star"></i> MY GALLERY <i class="fa-solid fa-star"></i></h1>
+
+    <div class="masonry-grid">
+      <div class="masonry-item">
+        <img src="images/b3.jpg" alt="My Self-Love">
+        <h5>My Self-Love</h5>
+        <p>Loving myself means choosing spaces where my soul can grow and bloom.</p>
+      </div>
+
+      <div class="masonry-item">
+        <img src="images/food.jpg" alt="Yummy w//Good Health">
+        <h5>Yummy w//Good Health</h5>
+        <p>Loving myself means choosing what nourishes me, not just what fills me</p>
+      </div>
+
+      <div class="masonry-item">
+        <img src="images/flower.jpg"  alt="Sun-Flower">
+        <h5>Sun-Flower</h5>
+        <p>A walk among sunflowers heals my heart —
+          a gentle joy I find for myself!</p>
+      </div>
+
+      <div class="masonry-item">
+        <img src="images/eat.jpg" alt="GOOD-Check Check">
+        <h5>GOOD-Check Check</h5>
+        <p>Every shake, a small step toward a stronger me</p>
+      </div>
+
+      <div class="masonry-item">
+        <img src="images/hp.jpg" alt="My Captured">
+        <h5>My Capture</h5>
+        <p>"In every picture, a story of love lives on</p>
+      </div>
+
+      <div class="masonry-item">
+        <img src="images/sky.jpg" alt="Sky Sunset">
+        <h5>Sky Sunset</h5>
+        <p>Walking alone along the path reminds me to slow down and breathe.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="custom-footer mt-5">
+    Bareeya Sanii | Nice to meet you.
+  </footer>
+
+<!-- 🎖️ MODAL BADGE POPUP -->
+  <div class="modal fade" id="fanBadgeModal" tabindex="-1" aria-labelledby="fanBadgeLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center" style="background: #111; color: #00ffcc; border: 2px solid #00ffcc; border-radius: 15px;">
+        <div class="modal-header border-0">
+          <h1 class="modal-title fs-4 w-100" id="fanBadgeLabel">🏅 Achievement Unlocked!</h1>
+        </div>
+        <div class="modal-body">
+          <div style="font-size: 3rem;">⭐</div>
+          <p class="fs-5 mt-3">You're a <strong>true fan!</strong> 🤍</p>
+          <p class="small text-light-emphasis">Thanks for exploring every corner of my world 🌏</p>
+        </div>
+        <div class="modal-footer justify-content-center border-0">
+          <button type="button" class="btn btn-outline-info" data-bs-dismiss="modal">Awesome!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote-card card text-center mx-auto p-4 shadow-lg">
+    <button id="closeQuoteBtn" type="button" class="btn-close btn-close-white" aria-label="Close" style="position: absolute; top: 8px; right: 12px;"></button>
+    <p id="quoteText" class="fs-5 mb-0"></p>
+  </div>
+
+  <script>
+    const pagesVisited = JSON.parse(localStorage.getItem("pagesVisited")) || {};
+
+    const currentPage = location.pathname.split("/").pop();
+    pagesVisited[currentPage] = true;
+
+    localStorage.setItem("pagesVisited", JSON.stringify(pagesVisited));
+
+    const allPages = ["index.html", "experience.html", "gallery.html", "contact.html"];
+
+    const hasAllPages = allPages.every(page => pagesVisited[page]);
+
+    // เช็กว่าเคยแสดง Badge แล้วหรือยัง (ถ้าไม่อยากโชว์ซ้ำ)
+    const badgeShown = localStorage.getItem("fanBadgeShown");
+
+    if (hasAllPages && !badgeShown) {
+      setTimeout(() => {
+        const modal = new bootstrap.Modal(document.getElementById('fanBadgeModal'));
+        modal.show();
+        localStorage.setItem("fanBadgeShown", "true"); // กันโชว์ซ้ำ
+      }, 1000);
+    }
+  </script>
+
+  <script>
+    const quotes = [
+      "Keep going. You're closer than you think.",
+      "🌱 Grow through what you go through.",
+      "Don't sparkle for them. Shine anyway. ✨",
+      "This is not a dream — it’s a decision.",
+    ];
+
+    function getRandomQuote() {
+      return quotes[Math.floor(Math.random() * quotes.length)];
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const quoteCard = document.querySelector(".quote-card");
+      const quoteElement = document.getElementById("quoteText");
+      const closeBtn = document.getElementById("closeQuoteBtn");
+
+      quoteElement.textContent = getRandomQuote();
+
+      // ฟังก์ชันซ่อนกล่อง
+      function hideQuote() {
+        quoteCard.style.display = "none";
+      }
+
+      // ตั้งเวลาหายอัตโนมัติ 5 วินาที
+      const autoHideTimeout = setTimeout(hideQuote, 5000);
+
+      // ปุ่มปิดซ่อนกล่องและเคลียร์เวลาตั้งไว้
+      closeBtn.addEventListener("click", () => {
+        hideQuote();
+        clearTimeout(autoHideTimeout);
+      });
+    });
+  </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
